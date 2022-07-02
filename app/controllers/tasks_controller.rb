@@ -22,7 +22,7 @@ class TasksController < ApplicationController
         @tasks = Task.where(status: params[:task][:status])
       elsif
         params[:task][:name].present?
-        @tasks = Task.where("name LIKE ?", "%#{params[:task][:name]}%")
+        @tasks = Task.where("name LIKE ?", "%#{params[:task][:name_key]}%")
       elsif
         params[:task][:status].present?
         @tasks = Task.where(status: params[:task][:status])
