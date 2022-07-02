@@ -21,14 +21,14 @@ class TasksController < ApplicationController
         @tasks = Task.where("name LIKE ?", "%#{params[:task][:name]}%")
         @tasks = Task.where(status: params[:task][:status])
       elsif
-        params[:task][:name].present?
-        @tasks = Task.where("name LIKE ?", "%#{params[:task][:name_key]}%")
+        params[:task][:name].present? && params[:task][:status] == ""
+        @tasks = Task.where("name LIKE ?", "%#{params[:task][:name]}%")
       elsif
-        params[:task][:status].present?
+        params[:task][:name].empty? && params[:task][:status].present?
         @tasks = Task.where(status: params[:task][:status])
       end
     end
-    @tasks = @tasks.page(params[:page]).per(5)
+    @tasks = @tasks.page(params[:page]).per(8)
   end
 
   def show
