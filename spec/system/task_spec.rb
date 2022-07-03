@@ -41,11 +41,11 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit new_task_path
         fill_in 'task[name]',with: 'test_name'
         fill_in 'task[content]',with: 'test_content'
-        fill_in 'task[deadline]' ,with: '2022_07_09'
+        fill_in 'task[deadline]' ,with: DateTime.now
         select '未着手', from: "task[status]"
         select '中', from: "task[priority]"
         click_on '登録'
-        expect(page).to have_content '中'
+        expect(page).to have_content 'タスクを登録しました'
       end
     end
   end
