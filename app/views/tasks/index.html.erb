@@ -7,7 +7,7 @@
         <li><%= form_with(model: Task.new, method: :get, local: true, url:tasks_path) do |form| %>
         <%= form.text_field :name %></li>
         <li><%=t('tasks.index.status_search') %></li>
-        <li><%= form.select :status, Task.statuses.keys.to_a, { include_blank:'選択してください'} %>
+        <li><%= form.select :status, Task.statuses.to_a, { include_blank:'選択してください'} %>
         <%= form.submit t("tasks.index.search"), name: nil %></li>
         <% end %>
       </ul>
