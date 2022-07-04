@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+li {
+  list-style: none;
+  float: left;
+  padding: 1rem;
+}
+
+td {
+  padding: 15px 8px;
+  border-top: 1px solid #cdd1d5;
+}
+
+a {
+  text-decoration: none;
+}
+
+.task_list {
+  margin: 20px;
+}
+
+.navbar-brand {
+  float: right;
+}
+
+.field {
+  float: left;
+  width: 100%;
+  margin: 10px 0px;
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.pagination {
+  justify-content: center;
+}

@@ -12,16 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :タスク名 %>
+    <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :内容 %>
+    <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
 
+  <div class="task_list">
+    <%= form.label :deadline %>
+    <%= form.date_field :deadline %>
+  </div>
+
+  <div class="task_list">
+    <%= form.label :ステータス %>
+    <%= form.select :status, Task.statuses.keys.to_a, { include_blank:'選択してください'}  %>
+  </div>
+
+  <div class="task_list">
+    <%= form.label :優先度 %>
+    <%= form.select :priority, Task.priorities.keys.to_a, { include_blank:'選択してください'}  %>
+  </div>
+
   <div class="actions">
-    <%= form.submit :新規登録 %>
+    <%= form.submit :登録 %>
   </div>
 <% end %>

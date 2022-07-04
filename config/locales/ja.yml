@@ -1,3 +1,4 @@
+---
 ja:
   activerecord:
     errors:
@@ -38,7 +39,7 @@ ja:
     - 金曜日
     - 土曜日
     formats:
-      default: "%Y/%m/%d %H"
+      default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
@@ -140,10 +141,18 @@ ja:
   helpers:
     select:
       prompt: 選択してください
+    links:
+      show: 詳細
+      back: 戻る
+      destroy: 削除
+      edit: 編集
+      new: 新規作成
+      cancel: キャンセル
     submit:
       create: 登録する
       submit: 保存する
       update: 更新する
+      search: 検索
   number:
     currency:
       format:
@@ -204,3 +213,6 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  tasks:
+    index:
+      name: 'タスク名'

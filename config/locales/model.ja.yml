@@ -1,0 +1,43 @@
+ja:
+  activerecord:
+    attributes:
+      task:
+        name: タスク名
+        content: タスク内容
+        deadline: 終了期限
+  tasks:
+    index:
+      name: タスク名
+      content: 内容
+      created_at: 登録日時
+      task_name: タスク検索
+      status_search: ステータス検索
+      selection: 選択してください
+      search: 検索
+      status: ステータス
+      link_to:
+        Show: 確認
+        Edit: 編集
+        Destroy: 削除
+        Create: 新規登録
+        deadline: 終了期限でソートする
+        priority: 優先度
+    show:
+      content: 内容
+      name: タスク名
+      created_at: 登録日時
+      Show: 確認
+      Back: 戻る
+    edit:
+      editing: 編集する
+      Show: 確認
+      Back: 戻る
+      Name: タスク名
+      Content: タスク内容
+      link_to:
+        Show: 確認
+        Back: 戻る
+    new:
+      new: 登録
+      Back: 戻る
+

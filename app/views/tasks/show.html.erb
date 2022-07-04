@@ -1,19 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>タスク名:</strong>
+  <h2><%=t('tasks.show.name')%></h2>
   <%= @task.name %>
 </p>
 
 <p>
-  <strong>内容:</strong>
+  <strong><%=t('tasks.show.content')%></strong>
   <%= @task.content %>
 </p>
 
 <p>
-  <strong>登録日時:</strong>
+  <strong><%=t('tasks.show.created_at')%>:</strong>
   <%= l @task.created_at %>
 </p>
 
-<%= link_to '編集', edit_task_path(@task) %> |
-<%= link_to '戻る', tasks_path %>
+<p>
+  <strong><%=t('tasks.show.status')%>:</strong>
+  <%= @task.status %>
+</p>
+
+<%= link_to t("tasks.show.Show"), edit_task_path(@task) %> |
+<%= link_to t("tasks.show.Back"), tasks_path %>
