@@ -24,7 +24,7 @@ class TasksController < ApplicationController
       else params[:task][:status].present?
         @tasks = @tasks.search_status(params[:task][:status])
       end
-      @tasks = @tasks.page(params[:page]).per(8)
+      @tasks = @tasks.page(params[:page]).per(10)
     end
   end
 
