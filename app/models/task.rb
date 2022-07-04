@@ -10,4 +10,6 @@ class Task < ApplicationRecord
 
   scope :search_name, -> (name) {where("name LIKE ?", "%#{name}%")}
   scope :search_status, -> (status) {where(status: status)}
+
+  paginates_per 5
 end

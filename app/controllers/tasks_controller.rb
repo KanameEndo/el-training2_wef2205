@@ -5,15 +5,15 @@ class TasksController < ApplicationController
     @tasks = Task.all.order(created_at: :desc)
     if params[:sort_expired]
       @tasks = Task.all
-      @tasks = Task.order(deadline: :desc)
+      @tasks = Task.order(deadline: :desc).page params[:page]
     else
       @tasks = Task.all
-      @tasks = Task.order(created_at: :desc)
+      @tasks = Task.order(created_at: :desc).page params[:page]
     end
 
     if params[:sort_priority_high]
       @tasks = Task.all
-      @tasks = Task.order(priority: :asc)
+      @tasks = Task.order(priority: :asc).page params[:page]
     end
 
     if params[:task].present?
