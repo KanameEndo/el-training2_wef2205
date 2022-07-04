@@ -46,6 +46,7 @@ RSpec.describe 'タスク管理機能', type: :system do
         select '中', from: "task[priority]"
         click_on '登録'
         expect(page).to have_content 'タスクを登録しました'
+        expect(page).to have_content '未着手'
       end
     end
   end

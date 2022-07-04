@@ -16,20 +16,33 @@ class TasksController < ApplicationController
       @tasks = Task.order(priority: :asc)
     end
 
+  #   if params[:task].present?
+  #     if params[:task][:name].present? && params[:task][:status].present?
+  #       @tasks = @tasks.where('name LIKE ?', "%#{params[:task][:name]}%")
+  #       @tasks = @tasks.where(status: params[:task][:status])
+  #     elsif
+  #       params[:task][:name].present?
+  #       @tasks = @tasks.where('name LIKE ?', "%#{params[:task][:name]}%")
+  #     elsif
+  #       params[:task][:status].present?
+  #       @tasks =@tasks.where(status: params[:task][:status])
+  #     end
+  #   end
+  #   @tasks = @tasks.page(params[:page]).per(8)
+  # end
+
     if params[:task].present?
-      if params[:task][:name].present? && params[:task][:status].present?
-        @tasks = @tasks.where('name LIKE ?', "%#{params[:task][:name]}%")
-        @tasks = @tasks.where(status: params[:task][:status])
-      elsif
-        params[:task][:name].present?
-        @tasks = @tasks.where('name LIKE ?', "%#{params[:task][:name]}%")
-      elsif
-        params[:task][:status].present?
-        @tasks =@tasks.where(status: params[:task][:status])
-      end
+    if params[:search_name].present? && params[:search_status].present?
+      @tasks =@tasks.search_name(params[:search_name]).search_status(params[:search_status])
+    elsif params[:search_name].present?
+      @tasks =@tasks.search_name(params[:search_name])
+    else params[:search_status].present?
+      @tasks = @tasks.search_status(params[:search_status])
     end
     @tasks = @tasks.page(params[:page]).per(8)
   end
+end
+
 
   def show
   end
