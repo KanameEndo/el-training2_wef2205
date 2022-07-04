@@ -4,11 +4,11 @@
     <div class=col-lg-7">
       <ul>
         <li><%= t('tasks.index.task_name') %></li>
-        <li><%= form_with(model: Task.new, method: :get, local: true, url:tasks_path) do |form| %>
-        <%= form.text_field :name %></li>
+        <%= form_with(model: Task.new, method: :get, local: true, url:tasks_path) do |form| %>
+        <%= form.text_field :name %>
         <li><%=t('tasks.index.status_search') %></li>
-        <li><%= form.select :status, Task.statuses.to_a, { include_blank:'選択してください'} %>
-        <%= form.submit t("tasks.index.search"), name: nil %></li>
+        <%= form.select :status, Task.statuses.to_a, { include_blank:'選択してください'} %>
+        <%= form.submit t("tasks.index.search"), name: nil %>
         <% end %>
       </ul>
     </div>
