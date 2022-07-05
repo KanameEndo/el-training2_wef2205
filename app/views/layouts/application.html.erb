@@ -13,6 +13,9 @@
     </head>
 
   <body>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="<%= tasks_path %>">タスク管理</a>
