@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :admin_user
   before_action :set_user, only: %i[ show edit update destroy ]
   skip_before_action :login_required, only: %i[ new create ]
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.all.order("created_at DESC")
   end
 
   # GET /users/1 or /users/1.json
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,12 +57,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_digest, :password_confirmation, :admin)
     end
