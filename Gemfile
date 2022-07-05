@@ -15,6 +15,7 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'bootstrap'
 gem 'kaminari'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
