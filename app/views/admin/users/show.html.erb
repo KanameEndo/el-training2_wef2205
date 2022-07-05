@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @user.name %>
+    <%= t('admin.users.show.profile') %>
+</h2>
+
+<table>
+  <tr>
+    <th><%= t('admin.users.show.name') %></th>
+    <th><%= t('admin.users.show.email') %></th>
+    <th><%= t('admin.users.show.admin') %></th>
+  </tr>
+
+  <tr>
+    <td><%= @user.name %></td>
+    <td><%= @user.email %></td>
+    <td><%= @user.admin %></td>
+  </tr>
+</table>
+
+<h2><%= t('admin.users.show.tasks') %></h2>
+<table>
+  <thead>
+    <tr>
+      <th><%= t('admin.users.show.tasks') %></th>
+      <th><%= t('admin.users.show.content') %></th>
+      <th><%= t('admin.users.show.created_at') %></th>
+      <th><%= t('admin.users.show.deadline') %></th>
+      <th><%= t('admin.users.show.status') %></th>
+      <th><%= t('admin.users.show.priority') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+        <tr class="user_now">
+        <td><%= task.name %></td>
+        <td><%= task.content %></td>
+        <td><%= task.created_at %></td>
+        <td><%= task.deadline %></td>
+        <td><%= task.status %></td>
+        <td><%= task.priority %></td>
+        <td><%= link_to t("admin.users.index.link_to.Show"), task_path(task.id) %></td>
+        <td><%= link_to t("admin.users.index.link_to.Edit"), edit_admin_user_path(task.id) %></td>
+        <td><%= link_to t("admin.users.index.link_to.Destroy"), task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

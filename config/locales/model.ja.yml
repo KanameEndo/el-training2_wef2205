@@ -45,11 +45,29 @@ ja:
       index:
         id: ユーザーID
         name: ユーザーの名前
-        email: ユーザーのemail
+        email: ユーザーのメールアドレス
         tasks: ユーザーのタスク
         link_to:
           Show: 確認
           Edit: 編集
           Destroy: 削除
+      show:
+        profile: プロフィール
+        name: 名前
+        email: メールアドレス
+        admin: 管理者権限
+        tasks: タスク名
+        content: 内容
+        created_at: 登録日時
+        deadline: 終了期限
+        status: ステータス
+        priority: 優先度
+      new:
+        administrator: 管理者用／新規ユーザー登録
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード再入力
+        submit: 登録
 
 
