@@ -40,4 +40,16 @@ ja:
     new:
       new: 登録
       Back: 戻る
+  admin:
+    users:
+      index:
+        id: ユーザーID
+        name: ユーザーの名前
+        email: ユーザーのemail
+        tasks: ユーザーのタスク
+        link_to:
+          Show: 確認
+          Edit: 編集
+          Destroy: 削除
+
 
