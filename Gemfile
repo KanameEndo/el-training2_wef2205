@@ -24,6 +24,7 @@ group :development, :test do
   gem 'rexml'
   gem 'pry-rails'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do

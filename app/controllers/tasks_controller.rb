@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
@@ -58,6 +58,11 @@ class TasksController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @task = current_user.tasks.build(task_params)
+    render :new if @task.invalid?
   end
 
   def destroy
