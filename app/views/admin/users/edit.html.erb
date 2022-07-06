@@ -1,0 +1,4 @@
+<h2>ユーザー編集</h2>
+<%= render 'form', user: @user %>
+<%= form.submit "更新",class: "btn btn-primary" %>
+<%= link_to 'ユーザー一覧', new_admin_user_path%>
