@@ -46,7 +46,8 @@ ja:
         id: ユーザーID
         name: ユーザーの名前
         email: ユーザーのメールアドレス
-        tasks: ユーザーのタスク
+        admin: 管理者権限
+        tasks: ユーザーのタスク数
         link_to:
           Show: 確認
           Edit: 編集
@@ -62,6 +63,12 @@ ja:
         deadline: 終了期限
         status: ステータス
         priority: 優先度
+        link_to:
+          task_new: タスク登録
+          profile_edit: プロフィール編集
+          Show: 確認
+          Edit: 編集
+          Destroy: 削除
       new:
         administrator: 管理者用／新規ユーザー登録
         name: ユーザー名

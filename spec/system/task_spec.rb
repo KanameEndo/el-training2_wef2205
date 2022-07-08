@@ -124,3 +124,26 @@ RSpec.describe 'タスク管理機能', type: :system do
     end
   end
 end
+
+
+require 'rails_helper'
+RSpec.describe 'ユーザー管理システムのテスト', type: :system do
+
+  describe 'ユーザー登録テスト' do
+    context 'ユーザーの新規登録が可能である' do
+      it 'ユーザーの新規登録テスト' do
+        # 【テストの処理（〇〇になることを期待する）】
+        visit new_user_path
+        fill_in 'user[name]', with: 'test2@mail.com'
+        fill_in 'user[email]', with: 'test2@mail.com'
+        fill_in 'user[password]', with: 'test2@mail.com'
+        fill_in 'user[password_confirmation]', with: 'test2@mail.com'
+        click_button 'Create my account'
+        expect(page).to have_content 'test2@mail.com'
+      end
+      it 'ログインしてない時はログイン画面に飛ぶ' do
+        visit tasks_path
+        expect(current_path).to eq new_session_path
+      end
+    end
+  end

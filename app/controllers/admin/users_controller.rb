@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy]
 
   def index
-    @user = User.select(:id, :name, :email, :admin).order("created_at: :desc").page(params[:page]).per(7)
+    @users = User.select(:id, :name, :email, :admin).order(created_at: "desc").page(params[:page]).per(7)
     #ユーザーのid、名前、メール、権限、を選んで(select)表示。登録順に表示。
   end
 
@@ -24,11 +24,12 @@ class Admin::UsersController < ApplicationController
   def create
   @user = User.new(user_params)
   #送信されてきた値
-  if @user.save
-    #登録を押したとき
-    redirect_to admin_users_path, notice: "ユーザーの登録が完了しました"
-  else
-    render :new
+    if @user.save
+      #登録を押したとき
+      redirect_to admin_users_path, notice: "ユーザーの登録が完了しました"
+    else
+      render :new
+    end
   end
 
   def update
@@ -50,15 +51,18 @@ class Admin::UsersController < ApplicationController
 
 
 private
-def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
-end
-def set_user
-  @user = User.find(params[:id])
-end
-def admin_check
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def admin_check
   unless current_user && current_user.admin?
-    #true/falseを返す。==は同じなだけ
+    #true/falseを返す。
     redirect_to root_path, notice: "アクセス不可です"
   end
+end
 end

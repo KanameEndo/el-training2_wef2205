@@ -29,4 +29,5 @@ class User < ApplicationRecord
       # return falseではなく throw :abort
       throw :abort
     end
+  end
 end
