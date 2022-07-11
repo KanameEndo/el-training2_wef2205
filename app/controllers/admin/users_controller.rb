@@ -1,17 +1,19 @@
 class Admin::UsersController < ApplicationController
 
-  #ログインしてるユーザーと権限を持っているユーザーが同じかチェック
   before_action :admin_check
   before_action :set_user, only: %i[ show edit update destroy]
 
   def index
     @users = User.select(:id, :name, :email, :admin).order(created_at: "desc").page(params[:page]).per(7)
-    #ユーザーのid、名前、メール、権限、を選んで(select)表示。登録順に表示。
   end
 
   def show
     @tasks = @user.tasks.all
     @tasks = @tasks.page(params[:page]).per(7)
+    @user = User.find(params[:id])
+    unless current_user == @user
+      redirect_to tasks_path, notice: '他の人のページは見れません'
+    end
   end
 
   def new
@@ -23,9 +25,7 @@ class Admin::UsersController < ApplicationController
 
   def create
   @user = User.new(user_params)
-  #送信されてきた値
     if @user.save
-      #登録を押したとき
       redirect_to admin_users_path, notice: "ユーザーの登録が完了しました"
     else
       render :new
@@ -34,15 +34,13 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      #編集を押したとき
       redirect_to admin_users_path, notice: "ユーザーを更新しました"
     end
       render :edit
   end
 
-  def destroy_action
+  def destroy
     if @user.destroy
-      #
       redirect_to admin_users_path, notice:"{@user.name}を削除しました"
     else
       redirect_to admin_users_path, notice:"管理者が存在しなくなるため削除できません"
@@ -61,7 +59,6 @@ private
 
   def admin_check
   unless current_user && current_user.admin?
-    #true/falseを返す。
     redirect_to root_path, notice: "アクセス不可です"
   end
 end

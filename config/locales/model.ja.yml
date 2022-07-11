@@ -40,6 +40,14 @@ ja:
     new:
       new: 登録
       Back: 戻る
+  users:
+    new:
+      NewUser: 新しいアカウントを作る
+      name: 名前
+      Email: メールアドレス
+      Password: パスワード
+      Password digest: パスワードを再入力してください
+      Admin: 管理者になる
   admin:
     users:
       index:
@@ -52,6 +60,7 @@ ja:
           Show: 確認
           Edit: 編集
           Destroy: 削除
+          NewUser: 新規ユーザー登録
       show:
         profile: プロフィール
         name: 名前
