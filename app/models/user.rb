@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   def cannot_destroy_only_one_admin
     @admin_user = User.where(admin: true)
-    if @admin_user.count == 1 && self.admin == true
+    if @admin_user.count <= 1 && self.admin == true
       errors.add :base, '少なくとも1人、ログイン用の認証が必要です'
       throw :abort
     end
