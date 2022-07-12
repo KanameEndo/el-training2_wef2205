@@ -13,7 +13,6 @@
     </head>
 
   <body>
-  <%# ログインしている場合としない場合 %>
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
@@ -33,13 +32,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<%= tasks_path %>">タスク一覧</a>
+            <a class="nav-link active" aria-current="page" href="<%= tasks_path %>">仕事のタスク一覧</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">アカウント詳細</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">ログアウト</a>
+            <a class="nav-link" href="<%= admin_users_path %>">管理者用のページ</a>
           </li>
         </ul>
       </div>

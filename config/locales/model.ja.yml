@@ -7,6 +7,7 @@ ja:
         deadline: 終了期限
   tasks:
     index:
+      name_02: 登録者
       name: タスク名
       content: 内容
       created_at: 登録日時
@@ -48,6 +49,19 @@ ja:
       Password: パスワード
       Password digest: パスワードを再入力してください
       Admin: 管理者になる
+    show:
+      Name: 名前
+      Email: メールアドレス
+      Admin: 管理者権限
+      link_to: 
+        admin_user: タスクユーザー一覧
+        tasks_index: タスク一覧画面へ戻る
+  sessions:
+    new:
+      sessions_new: ログインページ
+      Email: メールアドレス
+      Password: パスワード
+
   admin:
     users:
       index:

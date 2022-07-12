@@ -18,6 +18,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= t '.name_02' %></th>
       <th><%= t '.name' %></th>
       <th><%= t '.content' %></th>
       <th><%= t '.created_at' %></th>
@@ -31,6 +32,7 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr class="task_list">
+        <td><%= task.user.name %></td>
         <td><%= task.name %></td>
         <td><%= task.content %></td>
         <td><%= task.created_at %></td>
