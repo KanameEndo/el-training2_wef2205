@@ -1,24 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%=t('users.show.Name')%>:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%=t('users.show.Email')%>:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
+  <strong><%=t('users.show.Admin')%>:</strong>
   <%= @user.admin %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if @user.admin? %>
+  <%= link_to t("users.show.link_to.admin_user"),admin_users_path%>
+<%  end %>
+
+<p><%= link_to t("users.show.link_to.tasks_index"), tasks_path %></p>

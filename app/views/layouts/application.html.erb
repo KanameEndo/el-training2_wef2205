@@ -13,6 +13,16 @@
     </head>
 
   <body>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+  <% if logged_in? %>
+    <%= link_to "Profile", user_path(current_user.id) %>
+    <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_path %>
+    <%= link_to "Login", new_session_path %>
+  <% end %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="<%= tasks_path %>">タスク管理</a>
@@ -22,13 +32,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<%= tasks_path %>">タスク一覧</a>
+            <a class="nav-link active" aria-current="page" href="<%= tasks_path %>">仕事のタスク一覧</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">アカウント詳細</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">ログアウト</a>
+            <a class="nav-link" href="<%= admin_users_path %>">管理者用のページ</a>
           </li>
         </ul>
       </div>

@@ -1,19 +1,18 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :check_user, only: %i[ show edit update destroy ]
 
   def index
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks = current_user.tasks
+    @tasks = current_user.tasks.includes(:user).all.order(created_at: :desc)
     if params[:sort_expired]
-      @tasks = Task.all
-      @tasks = Task.order(deadline: :desc).page params[:page]
+      @tasks = @tasks.order(deadline: :desc).page params[:page]
     else
-      @tasks = Task.all
-      @tasks = Task.order(created_at: :desc).page params[:page]
+      @tasks = @tasks.order(created_at: :desc).page params[:page]
     end
 
     if params[:sort_priority_high]
-      @tasks = Task.all
-      @tasks = Task.order(priority: :asc).page params[:page]
+      @tasks = @tasks.order(priority: :asc).page params[:page]
     end
 
     if params[:task].present?
@@ -39,7 +38,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
@@ -60,6 +59,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def confirm
+    @task = current_user.tasks.build(task_params)
+    render :new if @task.invalid?
+  end
+
   def destroy
     @task.destroy
     respond_to do |format|
@@ -75,4 +79,11 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:name, :content, :deadline, :status, :priority)
     end
+
+    def check_user
+      @task = Task.find(params[:id])
+      if current_user.id != @task.user_id
+        redirect_to tasks_path, notice: '他の人のページへはアクセスできません'
+      end
+  end
 end

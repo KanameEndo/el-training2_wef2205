@@ -7,6 +7,7 @@ ja:
         deadline: 終了期限
   tasks:
     index:
+      name_02: 登録者
       name: タスク名
       content: 内容
       created_at: 登録日時
@@ -40,4 +41,63 @@ ja:
     new:
       new: 登録
       Back: 戻る
+  users:
+    new:
+      NewUser: 新しいアカウントを作る
+      name: 名前
+      Email: メールアドレス
+      Password: パスワード
+      Password digest: パスワードを再入力してください
+      Admin: 管理者になる
+    show:
+      Name: 名前
+      Email: メールアドレス
+      Admin: 管理者権限
+      link_to: 
+        admin_user: タスクユーザー一覧
+        tasks_index: タスク一覧画面へ戻る
+  sessions:
+    new:
+      sessions_new: ログインページ
+      Email: メールアドレス
+      Password: パスワード
+
+  admin:
+    users:
+      index:
+        id: ユーザーID
+        name: ユーザーの名前
+        email: ユーザーのメールアドレス
+        admin: 管理者権限
+        tasks: ユーザーのタスク数
+        link_to:
+          Show: 確認
+          Edit: 編集
+          Destroy: 削除
+          NewUser: 新規ユーザー登録
+      show:
+        profile: プロフィール
+        name: 名前
+        email: メールアドレス
+        admin: 管理者権限
+        tasks: タスク名
+        content: 内容
+        created_at: 登録日時
+        deadline: 終了期限
+        status: ステータス
+        priority: 優先度
+        link_to:
+          task_new: タスク登録
+          profile_edit: プロフィール編集
+          Show: 確認
+          Edit: 編集
+          Destroy: 削除
+      new:
+        administrator: 管理者用／新規ユーザー登録
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード再入力
+        submit: 登録
+
 

@@ -15,6 +15,7 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'bootstrap'
 gem 'kaminari'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'rexml'
   gem 'pry-rails'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
