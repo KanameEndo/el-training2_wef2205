@@ -40,6 +40,7 @@
     <% Label.all.each do |label| %>
     <%= form.check_box :label_ids, { multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false }, label[:id] %>
     <%= label.name %>
+    <% end %>
   </div>
 
   <div class="actions">

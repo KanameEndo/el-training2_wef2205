@@ -20,5 +20,12 @@
   <%= @task.status %>
 </p>
 
+<p>
+  <strong>label name:</strong>
+  <% @task.labels.each do |label| %>
+    <%= label.name %><br>
+  <% end %>
+</p>
+
 <%= link_to t("tasks.show.Show"), edit_task_path(@task) %> |
 <%= link_to t("tasks.show.Back"), tasks_path %>

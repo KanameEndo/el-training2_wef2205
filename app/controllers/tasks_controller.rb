@@ -85,5 +85,5 @@ class TasksController < ApplicationController
       if current_user.id != @task.user_id
         redirect_to tasks_path, notice: '他の人のページへはアクセスできません'
       end
-  end
+    end
 end
