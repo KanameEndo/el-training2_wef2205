@@ -11,6 +11,7 @@ ja:
       name: タスク名
       content: 内容
       created_at: 登録日時
+      label: ラベル名
       task_name: タスク検索
       status_search: ステータス検索
       selection: 選択してください
@@ -27,6 +28,8 @@ ja:
       content: 内容
       name: タスク名
       created_at: 登録日時
+      status: ステータス
+      label_name: ラベル名
       Show: 確認
       Back: 戻る
     edit:
@@ -86,6 +89,7 @@ ja:
         deadline: 終了期限
         status: ステータス
         priority: 優先度
+        label: ラベル名
         link_to:
           task_new: タスク登録
           profile_edit: プロフィール編集

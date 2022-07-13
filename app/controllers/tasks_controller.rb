@@ -20,8 +20,11 @@ class TasksController < ApplicationController
         @tasks =@tasks.search_name(params[:task][:name]).search_status(params[:task][:status])
       elsif params[:task][:name].present?
         @tasks =@tasks.search_name(params[:task][:name])
-      else params[:task][:status].present?
+      elsif params[:task][:status].present?
         @tasks = @tasks.search_status(params[:task][:status])
+      elsif params[:task][:label_id].present?
+        @task_label = Task_label.where(label_id: params[:task][:label_id]).pluck(:task_id)
+        @tasks = @tasks.where(id: @task_label)
       end
       @tasks = @tasks.page(params[:page]).per(10)
     end
