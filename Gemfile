@@ -16,6 +16,7 @@ gem 'enum_help'
 gem 'bootstrap'
 gem 'kaminari'
 gem 'bcrypt'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -23,7 +24,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rexml'
   gem 'pry-rails'
-  gem 'faker'
   gem 'dotenv-rails'
 end
 
