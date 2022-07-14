@@ -14,6 +14,7 @@ ja:
       label: ラベル名
       task_name: タスク検索
       status_search: ステータス検索
+      label_search: ラベル選択
       selection: 選択してください
       search: 検索
       status: ステータス
@@ -64,6 +65,16 @@ ja:
       sessions_new: ログインページ
       Email: メールアドレス
       Password: パスワード
+  labels:
+    new:
+      NewLabel: 新しいラベル作成
+      name: ラベル名
+    index:
+      labels: ラベル種類
+      name: ラベル名
+      link_to:
+        Destroy: 削除
+        NewLabel: 新しいラベル作成
 
   admin:
     users:
@@ -103,5 +114,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード再入力
         submit: 登録
+
 
 

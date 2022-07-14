@@ -9,6 +9,8 @@
         <li><%=t('tasks.index.status_search') %></li>
         <%= form.select :status, Task.statuses.to_a, { include_blank:'選択してください'} %>
         <%= form.submit t("tasks.index.search"), name: nil %>
+        <%= form.select("label_id", Label.all.pluck(:name, :id), { include_blank: true }) %>
+        <%= form.submit 'ラベル選択する', name: nil %>
         <% end %>
       </ul>
     </div>
