@@ -20,8 +20,11 @@ class TasksController < ApplicationController
         @tasks =@tasks.search_name(params[:task][:name]).search_status(params[:task][:status])
       elsif params[:task][:name].present?
         @tasks =@tasks.search_name(params[:task][:name])
-      else params[:task][:status].present?
+      elsif params[:task][:status].present?
         @tasks = @tasks.search_status(params[:task][:status])
+      elsif params[:task][:label_id].present?
+        @task_labels = TaskLabel.where(label_id: params[:task][:label_id]).pluck(:task_id)
+        @tasks = @tasks.where(id: @task_labels)
       end
       @tasks = @tasks.page(params[:page]).per(10)
     end
@@ -77,7 +80,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :content, :deadline, :status, :priority)
+      params.require(:task).permit(:name, :content, :deadline, :status, :priority, label_ids: [])
     end
 
     def check_user
@@ -85,5 +88,5 @@ class TasksController < ApplicationController
       if current_user.id != @task.user_id
         redirect_to tasks_path, notice: '他の人のページへはアクセスできません'
       end
-  end
+    end
 end

@@ -11,8 +11,10 @@ ja:
       name: タスク名
       content: 内容
       created_at: 登録日時
+      label: ラベル名
       task_name: タスク検索
       status_search: ステータス検索
+      label_search: ラベル選択
       selection: 選択してください
       search: 検索
       status: ステータス
@@ -27,6 +29,8 @@ ja:
       content: 内容
       name: タスク名
       created_at: 登録日時
+      status: ステータス
+      label_name: ラベル名
       Show: 確認
       Back: 戻る
     edit:
@@ -61,6 +65,16 @@ ja:
       sessions_new: ログインページ
       Email: メールアドレス
       Password: パスワード
+  labels:
+    new:
+      NewLabel: 新しいラベル作成
+      name: ラベル名
+    index:
+      labels: ラベル種類
+      name: ラベル名
+      link_to:
+        Destroy: 削除
+        NewLabel: 新しいラベル作成
 
   admin:
     users:
@@ -86,6 +100,7 @@ ja:
         deadline: 終了期限
         status: ステータス
         priority: 優先度
+        label: ラベル名
         link_to:
           task_new: タスク登録
           profile_edit: プロフィール編集
@@ -99,5 +114,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード再入力
         submit: 登録
+
 
 
